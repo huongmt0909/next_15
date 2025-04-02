@@ -5,8 +5,8 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   console.log("pathname", pathname);
 
-  return pathname === "/"
-    ? NextResponse.redirect(new URL("/home", request.nextUrl))
+  return ["/", "/home"].includes(pathname)
+    ? NextResponse.redirect(new URL("/login", request.nextUrl))
     : NextResponse.next();
 }
 
