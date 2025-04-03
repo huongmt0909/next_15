@@ -1,13 +1,18 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import createMiddleware from "next-intl/middleware";
+
+import { localesConfig } from "./locales/locales-config";
+
+export default createMiddleware(localesConfig);
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   console.log("pathname", pathname);
 
-  return ["/", "/home"].includes(pathname)
-    ? NextResponse.redirect(new URL("/login", request.nextUrl))
-    : NextResponse.next();
+  // return ["/", "/home"].includes(pathname)
+  //   ? NextResponse.redirect(new URL("/login", request.nextUrl))
+  //   : NextResponse.next();
 }
 
 // Cấu hình matcher để chỉ định những route nào sẽ chạy qua middleware

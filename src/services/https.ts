@@ -10,7 +10,7 @@ class HttpService {
   axiosInstance: any;
 
   // Base URL from environment variables for API endpoints
-  baseURL = process.env.NEXT_PUBLIC_BASE_API_URL;
+  baseURL = process.env.NEXT_PUBLIC_BASE_API_V1_URL;
 
   // Default timeout for requests (60 seconds)
   timeout = 60000;
@@ -41,7 +41,6 @@ class HttpService {
       // Merge existing headers with remember-me flag
       const newHeader = {
         ...headers,
-        "remember-me": true,
       };
 
       // Apply merged headers to request config
@@ -55,6 +54,7 @@ class HttpService {
     this.axiosInstance.interceptors.response.use(
       // Success handler - returns only the response data
       (response: any) => {
+        localStorage.setItem("headers", JSON.stringify(response.headers));
         return response.data;
       },
       // Error handler - processes HTTP errors

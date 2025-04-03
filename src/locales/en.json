@@ -1,0 +1,24 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "LoginPage": {
+    "title": "Sign in to your account",
+    "email": "Email address",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot your password?",
+    "signingIn": "Signing in...",
+    "submit": "Sign in"
+  },
+  "Validation": {
+    "required": "{field} is required",
+    "email": "Invalid email address",
+    "password": "Password must contain at least 8 characters, one letter and one number",
+    "minLength": "{field} must be at least {length} characters",
+    "maxLength": "{field} must not exceed {length} characters"
+  }
+}
