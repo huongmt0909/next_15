@@ -11,8 +11,9 @@ const baseApi = new BaseApi();
 // Utility function to create mutation function
 export const createMutation = <TData, TVariables>(endpoint: string) => {
   return async (variables: TVariables): Promise<TData> => {
-    const { data } = await baseApi.post(endpoint, variables);
-    return data;
+    const response = await baseApi.post(endpoint, variables);
+
+    return response;
   };
 };
 

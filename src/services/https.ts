@@ -58,7 +58,7 @@ class HttpService {
         return response.data;
       },
       // Error handler - processes HTTP errors
-      (error: any) => {
+      async (error: any) => {
         const status = error.response?.status;
         switch (status) {
           // Handle 404 and 500 errors
@@ -66,7 +66,7 @@ class HttpService {
           case 500:
             return Promise.reject({ internal_server_error: "msg" });
           default:
-            break;
+            return Promise.reject(error);
         }
       }
     );

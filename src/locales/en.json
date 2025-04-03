@@ -19,6 +19,7 @@
     "email": "Invalid email address",
     "password": "Password must contain at least 8 characters, one letter and one number",
     "minLength": "{field} must be at least {length} characters",
-    "maxLength": "{field} must not exceed {length} characters"
+    "maxLength": "{field} must not exceed {length} characters",
+    "invalidCredentials": "Email or password is incorrect"
   }
 }

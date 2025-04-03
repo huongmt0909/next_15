@@ -11,7 +11,8 @@ import {
   useMutation,
 } from "@/libs/hooks/react-query/useMutation";
 import api from "@/constants/api";
-
+import routers from "@/constants/routers";
+import { useRouter } from "next/navigation";
 interface LoginResponse {
   token: string;
   user: {
@@ -29,7 +30,9 @@ interface LoginFormData {
 const loginMutation = createMutation<LoginResponse, LoginFormData>(api.LOGIN);
 
 const LoginPageView = () => {
+  const router = useRouter();
   const t = useTranslations("LoginPage");
+  const tError = useTranslations("Validation");
   const methods = useForm<LoginFormData>({
     defaultValues: {
       email: "",
@@ -42,17 +45,20 @@ const LoginPageView = () => {
 
   const { mutate, isPending } = useMutation<LoginResponse, LoginFormData>({
     mutation: loginMutation,
-    onSuccess: (data) => {
-      // Handle successful login
-      console.log("Login successful:", data);
+    onSuccess: () => {
+      router.push(routers.HOME);
     },
-    onError: (error) => {
-      // Handle login error
-      console.error("Login failed:", error);
+    onError: () => {
+      methods.setError("password", {
+        type: "manual",
+        message: tError("invalidCredentials"),
+      });
     },
   });
 
   const onSubmit = async (data: LoginFormData) => {
+    // Clear previous errors before submitting
+    methods.clearErrors();
     mutate(data);
   };
 

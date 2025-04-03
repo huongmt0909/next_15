@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { QueryClientProvider } from "@/libs/react-query";
 import { NextIntlClientProvider } from "next-intl";
+import { CartProvider } from "@/contexts/CartContext";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +35,14 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider>
-          <QueryClientProvider>{children}</QueryClientProvider>
-        </NextIntlClientProvider>
+        <CartProvider>
+          <NextIntlClientProvider>
+            <QueryClientProvider>
+              {children}
+              <Toaster position="top-right" />
+            </QueryClientProvider>
+          </NextIntlClientProvider>
+        </CartProvider>
       </body>
     </html>
   );
