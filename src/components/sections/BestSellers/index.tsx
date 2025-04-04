@@ -8,10 +8,15 @@ const BestSellers = () => {
   const bestSellers = [...mockProducts].sort((a, b) => b.rating - a.rating);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {bestSellers.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div>
+      <h2 className="text-3xl font-bold text-primary-800 mb-8 text-left">
+        Best Sellers
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {bestSellers.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };

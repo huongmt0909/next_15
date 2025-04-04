@@ -7,7 +7,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 const banners = [
   {
     id: 1,
-    image: "/images/banner1.jpg",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/005/467/223/non_2x/new-arrival-banner-design-template-for-shoes-store-sports-fashion-business-illustration-vector.jpg",
     title: "Welcome to Our Store",
     description: "Discover amazing products at great prices",
     buttonText: "Shop Now",
@@ -15,7 +16,8 @@ const banners = [
   },
   {
     id: 2,
-    image: "/images/banner2.jpg",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/005/467/223/non_2x/new-arrival-banner-design-template-for-shoes-store-sports-fashion-business-illustration-vector.jpg",
     title: "Summer Collection",
     description: "New arrivals with up to 50% off",
     buttonText: "View Collection",
@@ -23,7 +25,8 @@ const banners = [
   },
   {
     id: 3,
-    image: "/images/banner3.jpg",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/005/467/223/non_2x/new-arrival-banner-design-template-for-shoes-store-sports-fashion-business-illustration-vector.jpg",
     title: "Special Offers",
     description: "Limited time deals on selected items",
     buttonText: "Shop Deals",
@@ -66,7 +69,7 @@ const Banner = () => {
             className="object-cover"
             priority={index === 0}
           />
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center">
+          <div className="absolute inset-0 bg-opacity-40 flex items-center">
             <div className="container mx-auto px-4">
               <div className="max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
